@@ -1,0 +1,90 @@
+@charset "ISO-8859-1";
+
+body{margin:0; padding:0}
+.titulo {
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-size: 30 px;
+    font-weight:bold ;
+    padding: 20px;
+    color: pink;
+    margin-left: 20px;
+    
+}
+li {                  
+    display: inline-block;
+    margin-right: 30px;
+}
+h2{
+	font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-size: 30 px;
+    font-weight:bold ;
+    padding: 20px;
+    margin-left: 20px;
+    text-align: center;
+    color: rgb(255, 128, 192);
+	
+}
+
+.titulos {
+	display:flex;
+	align-items:center;
+	align-content:center;
+	justify-content:center;
+    text-decoration: none;
+    color: rgb(0, 64, 128);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    top:-200px;
+    
+}
+.titulos li a{
+	color: rgb(255, 255, 255);
+}
+.menu{
+	width:100%;
+	height: 40px;
+	background:#3333ff;
+}
+.titulo
+body {                     
+    margin: 0px;
+}
+
+h1{
+    text-align: center;
+    margin-top: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 50px;
+    color: #fff;
+    background:#3333ff;
+    width:50%;
+}
+.table{
+    margin: 0 auto;
+    margin-top: 100px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 25px;
+}
+body{
+  	background-image: url("../Imagenes/img1.jpg");
+  }
+form{
+	width:80%;
+	display: black;
+	float: left;
+	color: white;
+}  
+
+
+
+.formulario{
+	color: red;
+	margin-top: 50px;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-size: 20px;
+    color: white;
+	
+}
+
+legend{color:#fff;font-weight:bold}
+label{font-weight:bold}
