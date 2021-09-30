@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 
-import Modelo.ClienteDTO;
+
 import Modelo.UsuarioDAO;
 import Modelo.UsuarioDTO;
 
@@ -69,6 +69,41 @@ public class Usuarios extends HttpServlet {
 				    }
 	       
 	            }
+ 				if(request.getParameter("actualizar")!=null) {
+					int cedula=0;
+					String email,nombre,password,usuario;
+					cedula= Integer.parseInt(request.getParameter("cedula"));
+					email=request.getParameter("email");
+					nombre=request.getParameter("nombre");
+					password=request.getParameter("pasword");
+					usuario=request.getParameter("usuario");
+					UsuarioDTO usuDto_Act= new UsuarioDTO(cedula,email,nombre,password,usuario);
+					if(usuDao.Actualizar_Usuario(usuDto_Act)) {
+						response.sendRedirect("Usuario.jsp?men= Usuario actualizado exitosamente.");
+						
+					}else {
+						response.sendRedirect("Cliente.jsp?men=El usiuario no se modifico.");
+					}
+                }
+
+ 				if(request.getParameter("eliminar")!=null) {         
+ 				    int cedula; 
+ 				   cedula = Integer.parseInt(request.getParameter("cedula"));
+ 				    int op=JOptionPane.showConfirmDialog(null, "Desea eliminar el usuario con cedula : "+cedula); 
+ 				    if(op==0) {
+ 				    	if(UsuarioDAO.Eliminar_usuario(cedula)) { 
+ 				                response.sendRedirect("Usuario.jsp?men=Usuario eliminado"); 
+ 				            }else { 
+ 				                response.sendRedirect("Usuario.jsp?men=El usuario no se eliminó"); 
+ 				            } 
+ 				            }else if (op==1){ 
+ 				                response.sendRedirect("Usuario.jsp?men=El usuario no se eliminó");
+
+ 				                } else {
+ 				                	response.sendRedirect("Usuario.jsp");             
+ 				                	}         
+ 				    }
+
            }			
 				
      }

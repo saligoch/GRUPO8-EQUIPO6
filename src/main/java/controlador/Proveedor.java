@@ -71,6 +71,39 @@ public class Proveedor extends HttpServlet {
 		    }
    
         }
+		if(request.getParameter("actualizar")!=null) {
+			int nit=0;
+			String ciudad,direccion,nombre,telefono;
+			nit= Integer.parseInt(request.getParameter("nit"));
+			ciudad=request.getParameter("ciudad");
+			direccion= request.getParameter("direccion");
+			nombre=request.getParameter("nombre");
+			telefono=request.getParameter("telefono");
+			ProveedorDTO proDto_Act= new ProveedorDTO(nit,ciudad,direccion,nombre,telefono);
+			if(proDao.Actualizar_Proveedor(proDto_Act)) {
+				response.sendRedirect("Usuario.jsp?men= Proveedor actualizado exitosamente.");
+				
+			}else {
+				response.sendRedirect("Proveedores.jsp?men=El proveedor no se modifico.");
+			}
+   }	
+		if(request.getParameter("eliminar")!=null) {         
+		    int nit; 
+		    nit = Integer.parseInt(request.getParameter("nit"));
+		    int op=JOptionPane.showConfirmDialog(null, "Desea eliminar el proveedor con Nit : "+nit); 
+		    if(op==0) {
+		    	if(ProveedorDAO.Eliminar_proveedor(nit)) { 
+		                response.sendRedirect("Proveedores.jsp?men=Proveedor eliminado"); 
+		            }else { 
+		                response.sendRedirect("Proveedores.jsp?men=El proveedor no se eliminó"); 
+		            } 
+		            }else if (op==1){ 
+		                response.sendRedirect("Proveedores.jsp?men=El proveedor no se eliminó");
+
+		                } else {
+		                	response.sendRedirect("Proveedores.jsp");             
+		                	}         
+		    }
    }			
 		
 }

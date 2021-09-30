@@ -11,9 +11,9 @@ import controlador.Conexion;
 
 public class ClienteDAO {
 	
-	Conexion cnn=new Conexion();
-	Connection con=cnn.Conecta();
-	PreparedStatement ps=null;
+	static Conexion cnn=new Conexion();
+	static Connection con=cnn.Conecta();
+	static PreparedStatement ps=null;
 	ResultSet res=null;
 	
 	public boolean Inserta_Cliente(ClienteDTO cli) {
@@ -53,5 +53,39 @@ public class ClienteDAO {
 		}
 		return cli;
 	}
- 
+	public boolean Actualizar_Cliente(ClienteDTO cli) {
+		boolean result=false;
+		try {	
+		String sql="update clientes set direccion_cliente=?, email_cliente=?, nombre_cliente=?, telefono_cliente=? where cedula_cliente =?";
+		ps=con.prepareStatement(sql);
+	
+		ps.setString(1,cli.getDireccion());
+		ps.setString(2,cli.getEmail());	
+		ps.setString(3,cli.getNombre());
+		ps.setString(4,cli.getTelefono());
+		ps.setInt(5,cli.getCedula());
+		result=ps.executeUpdate()>0 ? true:false;
+		return result;
+		
+		}catch(SQLException ex) {
+			JOptionPane.showMessageDialog(null,"error al actualizar " +ex);	
+			return false;
+		}	
+	}
+	public static boolean Eliminar_cliente(int cedula) {
+		boolean resul=false;
+		try {
+			String sql="delete from clientes where cedula_cliente=?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, cedula);
+			resul=ps.executeUpdate()>0;
+			}catch(SQLException ex) {
+				JOptionPane.showMessageDialog(null,"error al eliminar: "+ex);
+				}
+		return resul;
+		}
 }
+
+
+
+	

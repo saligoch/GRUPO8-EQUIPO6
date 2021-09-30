@@ -11,9 +11,9 @@ import controlador.Conexion;
 
 public class ProveedorDAO {
 	
-	Conexion cnn=new Conexion();
-	Connection con=cnn.Conecta();
-	PreparedStatement ps=null;
+	static Conexion cnn=new Conexion();
+	static Connection con=cnn.Conecta();
+	static PreparedStatement ps=null;
 	ResultSet res=null;
 	
 	public boolean Inserta_Proveedor(ProveedorDTO pro) {
@@ -53,5 +53,33 @@ public class ProveedorDAO {
 		}
 		return pro;
 	}
- 
+	public boolean Actualizar_Proveedor(ProveedorDTO pro) {
+	boolean result=false;
+	try {	
+	String sql="update proveedores set ciudad_proveedor=?, direccion_proveedor=?, nombre_proveedor =?, telefono_proveedor=? where nitproveedor=?";
+	ps=con.prepareStatement(sql);
+	ps.setString(1,pro.getCiudad());
+	ps.setString(2,pro.getDireccion());	
+	ps.setString(3,pro.getNombre());
+	ps.setString(4,pro.getTelefono());
+	ps.setInt(5,pro.getNit());
+	result=ps.executeUpdate()>0;
+	
+	}catch(SQLException ex) {
+		JOptionPane.showMessageDialog(null,"error al actualizar " +ex);	
+	}	
+	return result;
+}
+	public static boolean Eliminar_proveedor(int Nit) {
+		boolean resul=false;
+		try {
+			String sql="delete from proveedores where nitproveedor=?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, Nit);
+			resul=ps.executeUpdate()>0;
+			}catch(SQLException ex) {
+				JOptionPane.showMessageDialog(null,"error al eliminar: "+ex);
+				}
+		return resul;
+		}
 }

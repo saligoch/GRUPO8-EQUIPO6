@@ -68,9 +68,44 @@ public class Cliente extends HttpServlet {
 				    }
 	       
 	            }
+				if(request.getParameter("actualizar")!=null) {
+					int cedula=0;
+					String direccion,email,nombre,telefono;
+					cedula= Integer.parseInt(request.getParameter("cedula"));
+					direccion= request.getParameter("direccion");
+					email=request.getParameter("email");
+					nombre=request.getParameter("nombre");
+					telefono=request.getParameter("telefono");
+					ClienteDTO cliDto_Act= new ClienteDTO(cedula,direccion,email,nombre,telefono);
+					if(cliDao.Actualizar_Cliente(cliDto_Act)) {
+						response.sendRedirect("Cliente.jsp?men=Cliente actualizado exitosamente.");
+						
+			
+					}else {
+						response.sendRedirect("Cliente.jsp?men=El cliente no se modifico.");
+					}
+				}
+				if(request.getParameter("eliminar")!=null) {         
+ 				    int cedula; 
+ 				    cedula = Integer.parseInt(request.getParameter("cedula"));
+ 				    int op=JOptionPane.showConfirmDialog(null, "Desea eliminar el cliente con cedula : "+cedula); 
+ 				    if(op==0) {
+ 				    	if(ClienteDAO.Eliminar_cliente(cedula)) { 
+ 				                response.sendRedirect("Cliente.jsp?men=Cliente eliminado"); 
+ 				            }else { 
+ 				                response.sendRedirect("Cliente.jsp?men=El cliente no se eliminó"); 
+ 				            } 
+ 				            }else if (op==1){ 
+ 				                response.sendRedirect("Cliente.jsp?men=El cliente no se eliminó");
+
+ 				                } else {
+ 				                	response.sendRedirect("Cliente.jsp");             
+ 				                	}         
+ 				    }
            }			
-				
-     }
+           }			
+
+
 
 		    			
 	  

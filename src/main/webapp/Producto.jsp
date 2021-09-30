@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="CSS/pagina.css">
 </head>
 <meta charset="ISO-8859-1">
-<title>MODULO CLIENTE</title>
+<title>MODULO PRODUCTO</title>
 </head>
 
 <body>
@@ -18,54 +18,60 @@
         <nav class="titulos">
             <li><a href="Usuario.jsp" style="text-decoration:none">Usuarios</a></li>
             <li><a href="Cliente.jsp" style="text-decoration:none">Clientes</a></li>
-            <li><a href="DatosProv.jsp" style="text-decoration:none">Proveedores</a></li>
-            <li><a href="Productos.jsp" style="text-decoration:none">Productos</a></li>
+            <li><a href="Proveedor.jsp" style="text-decoration:none">Proveedores</a></li>
+            <li><a href="Producto.jsp" style="text-decoration:none">Productos</a></li>
             <li><a href="DatosVen.jsp" style="text-decoration:none">Ventas</a></li>
             <li><a href="DatosRep.jsp" style="text-decoration:none">Reportes</a></li>
         </nav>
     </div>
-    <h1 >MODULO CLIENTES</h1>
+    <h1 >MODULO PRODUCTO</h1>
        
 
    
 </body>
-<%!String direccion="",email="",nombre="",telefono="";	
-int identificacion; %>
+<%!String nombre="";	
+int identificacion, nit_proveedor;
+float iva,precioc,preciov;%>
 <%
 if(request.getParameter("identificacion")!=null){
 identificacion=Integer.parseInt(request.getParameter("identificacion"));
-direccion=request.getParameter("direccion");
-email=request.getParameter("email");
+nit_proveedor=Integer.parseInt(request.getParameter("nit_proveedor"));
+iva=Float.parseFloat(request.getParameter("iva"));
 nombre=request.getParameter("nombre");
-telefono=request.getParameter("telefono");
+precioc=Float.parseFloat(request.getParameter("precioc"));
+preciov=Float.parseFloat(request.getParameter("preciov"));
 }
 if(request.getParameter("men")!=null){
 	String mensaje=request.getParameter("men");
 out.print("<script type='text/javascript'>alert('"+mensaje+"');</script>");
-direccion="";email="";nombre="";telefono="";identificacion=0;
+
 }
 %>
-<form action="Cliente" method="post">
+<form action="Producto" method="post">
 <table>
 <tr>
- <td><label>Cedula:</label></td>
- <td><input type="number" name= "cedula" value="<%=identificacion%>"></td>
+ <td><label>Codigo producto:</label></td>
+ <td><input type="number" name= "codpro" value="<%=identificacion%>"></td>
 </tr>
 <tr>
- <td><label>Direccion:</label></td>
- <td><input type="text" name= "direccion" value="<%=direccion%>"></td>
+ <td><label>Iva:</label></td>
+ <td><input type="number" name= "iva" value="<%=iva%>"></td>
 </tr>
 <tr>
- <td><label>Correo electronico:</label></td>
- <td><input type="text" name= "email" value="<%=email%>"></td>
+ <td><label>Nit_proveedor:</label></td>
+ <td><input type="number" name= "nit_proveedor" value="<%=nit_proveedor%>"></td>
 </tr>
 <tr>
  <td><label>Nombre:</label></td>
  <td><input type="text" name= "nombre" value="<%=nombre %>"></td>
 </tr>
 <tr>
- <td><label>Telefono:</label></td>
- <td><input type="text" name= "telefono"value="<%=telefono%>"></td>
+ <td><label>Precio Compra:</label></td>
+ <td><input type="number" name= "precioc"value="<%=precioc%>"></td>
+</tr>
+<tr>
+<td><label>Precio Venta:</label></td>
+ <td><input type="number" name= "preciov"value="<%=preciov%>"></td>
 </tr>
 <tr>
 <td colspan="2"align='center'>
@@ -78,10 +84,10 @@ direccion="";email="";nombre="";telefono="";identificacion=0;
 
 </table>
 </form>
-<form action="Cliente" method="post">
+<form action="Producto" method="post">
 <fieldset>
-<legend>Consultar cliente</legend>
-<div><label>Cedula:</label><input type="number" name= "identificacion">
+<legend>Consultar Producto</legend>
+<div><label>Codigo Producto:</label><input type="number" name= "identificacion">
 <input type ="submit"name="consultar" Value="Consultar"></div>
 </fieldset>
 </form>

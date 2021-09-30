@@ -34,6 +34,7 @@ telefono=request.getParameter("telefono");
 if(request.getParameter("men")!=null){
 	String mensaje=request.getParameter("men");
 out.print("<script type='text/javascript'>alert('"+mensaje+"');</script>");
+ciudad="";direccion="";nombre="";telefono="";identificacion=0;
 }
 %>
 <form action="Proveedor" method="post">
