@@ -76,8 +76,8 @@ ciudad="";direccion="";nombre="";telefono="";identificacion=0;
             <li><a href="Usuario.jsp" style="text-decoration:none">Usuarios</a></li>
             <li><a href="Cliente.jsp" style="text-decoration:none">Clientes</a></li>
             <li><a href="Proveedores.jsp" style="text-decoration:none">Proveedores</a></li>
-            <li><a href="Productos.jsp" style="text-decoration:none">Productos</a></li>
-            <li><a href="DatosVen.jsp" style="text-decoration:none">Ventas</a></li>
+            <li><a href="Producto.jsp" style="text-decoration:none">Productos</a></li>
+            <li><a href="Venta.jsp" style="text-decoration:none">Ventas</a></li>
             <li><a href="DatosRep.jsp" style="text-decoration:none">Reportes</a></li>
         </nav>
     </div>
@@ -89,6 +89,5 @@ ciudad="";direccion="";nombre="";telefono="";identificacion=0;
 <input type ="submit"name="consultar" Value="Consultar"></div>
 </fieldset>
 </form>
-
 </body>
 </html>

@@ -81,7 +81,7 @@ public class Proveedor extends HttpServlet {
 			telefono=request.getParameter("telefono");
 			ProveedorDTO proDto_Act= new ProveedorDTO(nit,ciudad,direccion,nombre,telefono);
 			if(proDao.Actualizar_Proveedor(proDto_Act)) {
-				response.sendRedirect("Usuario.jsp?men= Proveedor actualizado exitosamente.");
+				response.sendRedirect("Proveedores.jsp?men= Proveedor actualizado exitosamente.");
 				
 			}else {
 				response.sendRedirect("Proveedores.jsp?men=El proveedor no se modifico.");

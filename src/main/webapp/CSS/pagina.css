@@ -66,7 +66,7 @@ h1{
     font-size: 25px;
 }
 body{
-  	background-image: url("../Imagenes/img1.jpg");
+  	background-image: url("../Imagenes/img2.jpg");
   }
 form{
 	width:80%;
@@ -87,4 +87,27 @@ form{
 }
 
 legend{color:#fff;font-weight:bold}
-label{font-weight:bold}
+label{font-weight:bold;text-decoration:underline}
+
+
+.tablareportes{
+	display:flex;
+	justify-content:center;
+	width:100%;
+}
+
+.tablareportes table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+}
+
+.tablareportes td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.tablareportes tr:nth-child(even) {
+  background-color: #dddddd;
+}

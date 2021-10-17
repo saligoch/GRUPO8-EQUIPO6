@@ -18,7 +18,7 @@
         <nav class="titulos">
             <li><a href="Usuario.jsp" style="text-decoration:none">Usuarios</a></li>
             <li><a href="Cliente.jsp" style="text-decoration:none">Clientes</a></li>
-            <li><a href="DatosProv.jsp" style="text-decoration:none">Proveedores</a></li>
+            <li><a href="Proveedores.jsp" style="text-decoration:none">Proveedores</a></li>
             <li><a href="Productos.jsp" style="text-decoration:none">Productos</a></li>
             <li><a href="DatosVen.jsp" style="text-decoration:none">Ventas</a></li>
             <li><a href="DatosRep.jsp" style="text-decoration:none">Reportes</a></li>

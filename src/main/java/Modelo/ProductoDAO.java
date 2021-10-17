@@ -11,9 +11,9 @@ import controlador.Conexion;
 
 public class ProductoDAO {
 
-	Conexion cnn=new Conexion();
-	Connection con=cnn.Conecta();
-	PreparedStatement ps=null;
+	static Conexion cnn=new Conexion();
+	static Connection con=cnn.Conecta();
+	static PreparedStatement ps=null;
 	ResultSet res=null;
 	
 	public boolean Inserta_Producto(ProductoDTO prod) {
@@ -54,5 +54,51 @@ public class ProductoDAO {
 		}
 		return prod;
 	}
- 
+	public boolean Actualizar_Producto(ProductoDTO prod) {
+		boolean result=false;
+		try {	
+		String sql="update productos set ivacompra=?, nitproveedor=?, nombre_producto=?, precio_compra=? , precio_venta=? where codigo_producto =?";
+		ps=con.prepareStatement(sql);
+	
+		ps.setFloat(1,prod.getIva());
+		ps.setInt(2,prod.getNit_proveedor());	
+		ps.setString(3,prod.getNombre());
+		ps.setFloat(4,prod.getPrecioc());
+		ps.setFloat(5,prod.getPreciov());
+		ps.setInt(6,prod.getCodpro());
+		result=ps.executeUpdate()>0 ? true:false;
+		return result;
+		
+		}catch(SQLException ex) {
+			JOptionPane.showMessageDialog(null,"error al actualizar " +ex);	
+			return false;
+		}	
+	}
+	
+	public boolean Cargar_Productos(String URL) {
+		boolean resul=false;
+		try {
+			
+		String sql="load data infile'"+URL+"'into table productos fields terminated by';'lines terminated by'\r\n'";
+		ps=con.prepareStatement(sql);
+		resul=ps.executeUpdate()>0;
+		
+		}catch(SQLException ex) {
+			JOptionPane.showMessageDialog(null,"Error al ingresar los productos" +ex);
+		}
+		return resul;
+	}
+	
+public static boolean Eliminar_producto(int codpro) {
+	boolean resul=false;
+	try {
+		String sql="delete from productos where codigo_producto=?";
+		ps=con.prepareStatement(sql);
+		ps.setInt(1, codpro);
+		resul=ps.executeUpdate()>0;
+		}catch(SQLException ex) {
+			JOptionPane.showMessageDialog(null,"error al eliminar: "+ex);
+			}
+	return resul;
+	}
 }

@@ -18,7 +18,7 @@
         <nav class="titulos">
             <li><a href="Usuario.jsp" style="text-decoration:none">Usuarios</a></li>
             <li><a href="Cliente.jsp" style="text-decoration:none">Clientes</a></li>
-            <li><a href="Proveedor.jsp" style="text-decoration:none">Proveedores</a></li>
+            <li><a href="Proveedores.jsp" style="text-decoration:none">Proveedores</a></li>
             <li><a href="Producto.jsp" style="text-decoration:none">Productos</a></li>
             <li><a href="DatosVen.jsp" style="text-decoration:none">Ventas</a></li>
             <li><a href="DatosRep.jsp" style="text-decoration:none">Reportes</a></li>
@@ -91,5 +91,10 @@ out.print("<script type='text/javascript'>alert('"+mensaje+"');</script>");
 <input type ="submit"name="consultar" Value="Consultar"></div>
 </fieldset>
 </form>
+<form action="Producto" method="post" enctype="multipart/form-data">
+<div><label>Archivo:</label><input type="file" name= "archivo" value="examinar"></div>
+<input type ="submit"name="cargar" Value="Cargar Archivo">
+</form>
+
 </body>
 </html>

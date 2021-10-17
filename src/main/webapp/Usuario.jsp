@@ -77,7 +77,7 @@ email="";nombre="";pasword="";usuario="";identificacion=0;
             <li><a href="Cliente.jsp" style="text-decoration:none">Clientes</a></li>
             <li><a href="Proveedores.jsp" style="text-decoration:none">Proveedores</a></li>
             <li><a href="Productos.jsp" style="text-decoration:none">Productos</a></li>
-            <li><a href="DatosVen.jsp" style="text-decoration:none">Ventas</a></li>
+            <li><a href="Venta.jsp" style="text-decoration:none">Ventas</a></li>
             <li><a href="DatosRep.jsp" style="text-decoration:none">Reportes</a></li>
         </nav>
     </div>

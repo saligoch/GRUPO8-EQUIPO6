@@ -10,7 +10,7 @@ public class Conexion {
 	private String bd="tienda_generica";
 	private String url="jdbc:mysql://localhost:3306/"+bd;
 	private String user="root";
-	private String pass="";
+	private String pass=""; 
 	Connection con=null;
 	
 	public Connection Conecta() {
